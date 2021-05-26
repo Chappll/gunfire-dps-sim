@@ -1,0 +1,37 @@
+.WeaponDpsInner{
+    display: flex;
+    border-radius: 5px;
+    font-size: 15px;
+    justify-content:space-between;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    width: 90%;
+}
+
+.WeaponDpsOuter{
+    border: 1px solid white;
+    display: flex;
+    border-radius: 5px;
+    margin: 8px;
+    padding: 14px;
+    font-size: 15px;
+    justify-content:space-between;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+}
+
+.dpsNumber{
+    margin: 12px;
+    
+}
+
+.Name{
+    margin: 20px;
+    position: absolute;
+    color: black;
+}
+
+
+
