@@ -2,11 +2,12 @@ import React, {useState, useEffect} from "react";
 import {ProgressBarLine} from 'react-progressbar-line';
 import './WeaponDps.css'
 
-function WeaponDps({weaponID, weapon, maxDps}) {
+function WeaponDps({weaponID, weapon, dps, maxDps}) {
     //Weapon fields are: Name, Category, CritX, Damage, DmgType, EChance, Magazine, PicLink, Reload, Rof
-
-    const barValue = (weapon.Damage/maxDps)*100
+    //(weapon.Damage/maxDps)*100
+    let barValue = (dps/maxDps)*100
     const img = new URL(weapon.PicLink)
+    console.log(maxDps)
 
     const colorSelect = () => {
         switch (weapon.DmgType) {
@@ -20,9 +21,9 @@ function WeaponDps({weaponID, weapon, maxDps}) {
                 return('#616275');
         }
     }
+    
     return (
         <div className='WeaponDpsOuter'>
-            {console.log(weapon.PicLink)}
             <img src={weapon.PicLink} alt="logo" height={100} width={100}></img>
             <div className='WeaponDpsInner'>
                 <h1 className='Name'>{weaponID}</h1>  
@@ -47,7 +48,7 @@ function WeaponDps({weaponID, weapon, maxDps}) {
                         }}
                     />
             </div>
-            <h2 className='dpsNumber'>{weapon.Damage} dps</h2>
+            <h2 className='dpsNumber'>{dps} dps</h2>
         </div>
     )
 }

@@ -2,29 +2,44 @@ import WeaponDps from "./WeaponDps";
 import React, {useState, useEffect} from "react";
 
 function DpsChart({weaponNames, weaponStats}) {
+  //Weapon fields are: Name, Category, CritX, Damage, DmgType, EChance, Magazine, PicLink, Reload, Rof
+    const [loading,setLoading] = useState(false)
     const [maxDps, setMaxDps] = useState(0)
     const [weaponData, setWeaponData] = useState([])
 
-    const dpsCalc = () => {
-        setMaxDps(Math.max.apply(Math, weaponStats.map(function(o) { return o.Damage; })))  
-      }
-
     const newWeaponArray = () => {
+        setLoading(true)
         let items = [];
+        let dps = 0;
+        let maxDps = 0;
         for (let i = 0; i < weaponNames.length; i++) {
-            items.push({Name: weaponNames[i] , Stats: weaponStats[i]})
+            dps = dpsCalc(i)
+            if (dps > maxDps) {
+              maxDps = dps
+            }
+            items.push({Name: weaponNames[i] , Stats: weaponStats[i], Dps: dps})
         }
         
         items.sort(compareDps)
         setWeaponData(items)
-        console.log(weaponData)
+        setMaxDps(maxDps)
     } 
 
+    const damageMult = () => {
+      
+    }
+
+    const dpsCalc = (i) => {
+        const dps = (weaponStats[i].Damage)/((1/weaponStats[i].Rof)+(weaponStats[i].Reload/weaponStats[i].Magazine))
+        return Math.round(dps)
+    }
+
+
     const compareDps = (a,b) => {
-        if ( a.Stats.Damage > b.Stats.Damage ){
+        if ( a.Dps > b.Dps ){
             return -1;
           }
-          if ( a.Stats.Damage < b.Stats.Damage ){
+          if ( a.Dps < b.Dps ){
             return 1;
           }
           return 0;
@@ -32,18 +47,13 @@ function DpsChart({weaponNames, weaponStats}) {
 
       useEffect(() => {
         newWeaponArray()
-        dpsCalc()
+        setLoading(false) 
         // eslint-disable-next-line 
       }, []);
 
     return (
         <div>
-
-            {weaponData.map((item) => (
-                <WeaponDps weaponID={item.Name} weapon={item.Stats} maxDps={maxDps}/>
-            ))}
-            
-            
+            {!loading && weaponData.map((item) => (<WeaponDps weaponID={item.Name} weapon={item.Stats} dps={item.Dps} maxDps={maxDps}/>))}               
             
         </div>
     )
