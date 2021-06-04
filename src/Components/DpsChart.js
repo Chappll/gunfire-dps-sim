@@ -53,8 +53,7 @@ function DpsChart({weaponNames, weaponStats}) {
 
     return (
         <div>
-            {!loading && weaponData.map((item) => (<WeaponDps weaponID={item.Name} weapon={item.Stats} dps={item.Dps} maxDps={maxDps}/>))}               
-            
+            {!loading && weaponData.map((item) => (<WeaponDps weaponID={item.Name} weapon={item.Stats} dps={item.Dps} maxDps={maxDps}/>))}                   
         </div>
     )
 }

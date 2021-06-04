@@ -1,10 +1,16 @@
 .App {
-  text-align: center;
   background-color: #000000;
+}
+
+.logo{
+  position: absolute;
+  width: 25%;
+  height: 25%;
 }
 
 .App-header {
   background-color: #03060a;
+  position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

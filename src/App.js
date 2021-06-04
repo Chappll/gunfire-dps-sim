@@ -2,6 +2,7 @@ import './App.css';
 import firebase from "./firebase";
 import React, {useState, useEffect} from "react";
 import DpsChart from "./Components/DpsChart";
+import OptionsForm from "./Components/OptionsForm"
 import logo from "./Images/GunfireLogo.PNG";
 
 function App() {
@@ -45,7 +46,8 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <img src={logo} alt="logo" height={300} width={600}></img>
+      <img className="logo" src={logo} alt="logo" height={300} width={600}></img>
+      <OptionsForm></OptionsForm>
       <header className="App-header">
         {//<button onClick={addWeapon}>Add</button>
         }
