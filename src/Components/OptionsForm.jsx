@@ -29,13 +29,13 @@ function OptionsForm({ optionsUpdate }) {
 		<div>
 			<div className="Options">
 				<div className="item">
-					<Button style={{ marginRight: '5px' }} variant={options.MinDamage ? 'secondary' : 'primary'} onClick={() => setOptionsValues({ MinDamage: false })}>Max Damage</Button>
-					<Button variant={options.MinDamage ? 'primary' : 'secondary'} onClick={() => setOptionsValues({ MinDamage: true })}>Minimum Damage</Button>
+					<Button style={{ marginRight: '5px' }} variant={options.MinDamage ? 'secondary' : 'primary'} onClick={() => setOptionsValues({ MinDamage: false, MinROF: false })}>Maximum Dps</Button>
+					<Button variant={options.MinDamage ? 'primary' : 'secondary'} onClick={() => setOptionsValues({ MinDamage: true, MinROF: true })}>Minimum Dps</Button>
 				</div>
-				<div className="item">
+				{/* <div className="item">
 					<Button style={{ marginRight: '5px' }} variant={options.MinROF ? 'secondary' : 'primary'} onClick={() => setOptionsValues({ MinROF: false })}>Max Rate of Fire</Button>
 					<Button variant={options.MinROF ? 'primary' : 'secondary'} onClick={() => setOptionsValues({ MinROF: true })}>Minimum Rate of Fire</Button>
-				</div>
+				</div> */}
 				<div className="item">
 					<Button style={{ marginRight: '5px' }} disabled={options.Health === 'Health'} variant="danger" onClick={() => setOptionsValues({ Health: 'Health' })}>Health</Button>
 					<Button style={{ marginRight: '5px' }} disabled={options.Health === 'Armor'} variant="success" onClick={() => setOptionsValues({ Health: 'Armor' })}>Armor</Button>
