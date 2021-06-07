@@ -4,9 +4,8 @@
 }
 
 .logo{
-  position: absolute;
-  width: 25%;
-  height: 25%;
+  position: fixed;
+
 }
 
 .App-header {
@@ -15,7 +14,11 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  
+
 }
 
-
+@media (max-width:1500px){
+	.logo {
+	  visibility: hidden;
+	}
+}
