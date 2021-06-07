@@ -1,0 +1,70 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"extends": ["airbnb"],
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"paths": ["src"]
+			}
+		}
+	},
+	"globals": {
+		"Atomics": "readonly",
+		"SharedArrayBuffer": "readonly"
+	},
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 2018,
+		"sourceType": "module"
+	},
+	"parser": "babel-eslint",
+	"plugins": ["react"],
+	"rules": {
+		"indent": ["error", "tab"],
+		"no-tabs": ["off"],
+		"comma-dangle": "off",
+		"semi": ["error", "never"],
+		"func-style": [
+			"error",
+			"declaration",
+			{
+				"allowArrowFunctions": true
+			}
+		],
+		"import/no-named-as-default": "off",
+		"no-param-reassign": "off",
+		"no-useless-return": "off",
+		"react/jsx-props-no-spreading": "off",
+		"no-underscore-dangle": [
+			"error",
+			{
+				"allow": ["_id"]
+			}
+		],
+		"react/jsx-indent": "off",
+		"react/jsx-indent-props": "off",
+		"react/forbid-prop-types": "off",
+		"no-confusing-arrow": "off",
+		"object-curly-newline": "off",
+		"no-prototype-builtins": "off",
+		"arrow-body-style": "off",
+		"no-restricted-globals": "off",
+		"no-plusplus": "off",
+		"max-classes-per-file": "off",
+		"max-len": "off",
+		"consistent-return": "off",
+		"no-nested-ternary": "off",
+		"import/no-unresolved": "off",
+		"react/no-did-update-set-state": "off",
+		"camelcase": "off",
+		"no-useless-escape": "off",
+		"no-undef": "off",
+		"import/prefer-default-export": "off",
+		"react/destructuring-assignment": "off"
+	}
+}

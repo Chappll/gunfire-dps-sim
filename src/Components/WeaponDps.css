@@ -1,12 +1,13 @@
 .WeaponDpsInner{
     display: flex;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 15vw;
     justify-content:space-between;
     flex-direction: row;
     align-items: center;
     color: white;
-    width: 90%;
+    width: 100%;
+
 }
 
 .WeaponDpsOuter{
@@ -15,20 +16,17 @@
     border-radius: 5px;
     margin: 8px;
     padding: 14px;
-    font-size: 15px;
+    font-size: 15vw;
     justify-content:space-between;
     flex-direction: row;
     align-items: center;
     color: white;
 }
 
-.dpsNumber{
-    margin: 12px;
-    
-}
 
 .Name{
     margin: 20px;
+    font-size: 2vw;
     position: absolute;
     color: black;
 }
