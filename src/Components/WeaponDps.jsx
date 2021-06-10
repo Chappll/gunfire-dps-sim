@@ -48,7 +48,7 @@ function WeaponDps({ weaponID, weapon, dps, maxDps }) {
 					}}
 				/>
 			</div>
-			<h2 style={{ fontSize: '2vw', margin: '5px', position: 'absolute', marginLeft: '80%', color: 'black' }}>
+			<h2 className="dpsText">
 				{dps}
 				{' '}
 dps
@@ -65,3 +65,5 @@ WeaponDps.propTypes = {
 	dps: PropTypes.any.isRequired,
 	maxDps: PropTypes.any.isRequired
 }
+
+// { fontSize: '2vw', margin: '5px', position: 'absolute', marginLeft: '80%', color: 'black' }

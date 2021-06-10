@@ -7,7 +7,6 @@
     align-items: center;
     color: white;
     width: 100%;
-
 }
 
 .WeaponDpsOuter{
@@ -23,13 +22,33 @@
     color: white;
 }
 
-
 .Name{
     margin: 20px;
     font-size: 2vw;
     position: absolute;
     color: black;
 }
+
+.dpsText {
+	margin: 5px;
+	margin-left: 80%;
+    font-size: 2vw;
+    position: absolute;
+    color: black;
+}
+
+@media (max-width:1000px){
+	.dpsText {
+	  color: white;
+	  margin-bottom: 5px;
+	  position:static;
+	  margin-left: 2%;
+	  font-size: 15px;
+	  margin-right: 10px;
+	}
+
+}
+
 
 
 
