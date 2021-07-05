@@ -3,10 +3,11 @@
     border-radius: 5px;
     font-size: 15vw;
     justify-content:space-between;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     color: white;
     width: 100%;
+	margin-bottom: 60px;
 }
 
 .WeaponDpsOuter{
@@ -20,33 +21,33 @@
     flex-direction: row;
     align-items: center;
     color: white;
+	width: 60%;
+	margin-left: 20%;
+	background-color: #03060a;
 }
 
 .Name{
     margin: 20px;
-    font-size: 2vw;
-    position: absolute;
-    color: black;
+    font-size: 20px;
+    color: white;
 }
 
 .dpsText {
-	margin: 5px;
-	margin-left: 80%;
-    font-size: 2vw;
-    position: absolute;
-    color: black;
+	color: white;
+	  margin-bottom: 5px;
+	  position:static;
+	  margin-left: 2%;
+	  font-size: 20px;
+	  margin-right: 10px;
 }
 
 @media (max-width:1000px){
 	.dpsText {
-	  color: white;
-	  margin-bottom: 5px;
-	  position:static;
-	  margin-left: 2%;
 	  font-size: 15px;
-	  margin-right: 10px;
 	}
-
+	.WeaponDpsOuter{
+		width: 100%;
+	}
 }
 
 

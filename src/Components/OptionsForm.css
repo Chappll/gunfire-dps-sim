@@ -1,12 +1,13 @@
 .Options{
     display: flex;
     text-align: center;
-    width: 50%;
+    width: 100%;
     align-items: center;
     justify-content:space-between;
     margin-left: 25%;
     padding-top: 2%;
     flex-direction: column;
+	transform: translate(-25%);
 }
 
 .item{
@@ -38,5 +39,7 @@
 .filter
 {
     left: 0%;
-    margin-left: 10px;
+    margin-left: 70%;
+	margin-top: 5px;
+	margin-bottom: 1%;
 }
