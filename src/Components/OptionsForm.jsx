@@ -18,7 +18,7 @@ function OptionsForm({ optionsUpdate }) {
 	// const [minRof, setMinRof] = useState(false)
 	// const [minDamage, setMinDamage] = useState(false)
 
-	const [options, setOptions] = useState({ Crit: false, Reloads: true, WpnLevel: 0, Category: 'All', Health: 'Health', MinROF: false, MinDamage: false })
+	const [options, setOptions] = useState({ Crit: false, Reloads: true, WpnLevel: 0, Category: 'All', Health: 'Health', AOE: 1, MinROF: false, MinDamage: false })
 
 	const setOptionsValues = (updatedValues) => {
 		setOptions((prevOptions) => ({ ...prevOptions, ...updatedValues }))
@@ -49,10 +49,21 @@ function OptionsForm({ optionsUpdate }) {
 					<Button style={{ marginRight: '5px' }} variant={options.Reloads ? 'primary' : 'secondary'} onClick={() => setOptionsValues({ Reloads: true })}>Reloads On</Button>
 					<Button variant={options.Reloads ? 'secondary' : 'primary'} onClick={() => setOptionsValues({ Reloads: false })}>No Reloads</Button>
 				</div>
+
+				<div className="spinner">
+					<Button variant="dark" onClick={() => (options.AOE > 1 ? setOptionsValues({ AOE: (options.AOE - 1) }) : null)}>-</Button>
+					<h2 className="space">
+            			Enemies:
+						{' '}
+						{options.AOE}
+					</h2>
+					<Button variant="dark" onClick={() => (options.AOE < 5 ? setOptionsValues({ AOE: (options.AOE + 1) }) : null)}>+</Button>
+				</div>
+
 				<div className="spinner">
 					<Button variant="dark" onClick={() => (options.WpnLevel > 0 ? setOptionsValues({ WpnLevel: (options.WpnLevel - 1) }) : null)}>-</Button>
 					<h2 className="space">
-            Weapon Level: +
+            			Weapon Level: +
 						{options.WpnLevel}
 					</h2>
 					<Button variant="dark" onClick={() => (options.WpnLevel < 40 ? setOptionsValues({ WpnLevel: (options.WpnLevel + 1) }) : null)}>+</Button>

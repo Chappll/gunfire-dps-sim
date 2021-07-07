@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import WeaponDps from './WeaponDps'
 
 function DpsChart({ weaponNames, weaponStats, options }) {
-	// Weapon fields are: Name, Category, CritX, Damage, DmgType, EChance, Magazine, PicLink, Reload, Rof, DamageMin, RofMin
+	// Weapon fields are: Name, Category, CritX, Damage, DmgType, EChance, Magazine, PicLink, Reload, Rof, DamageMin, RofMin, AOE
 	// Options are Crit, Reloads, WpnLevel, Category, Health, MinROF, MinDamage
 	const [loading, setLoading] = useState(false)
 	const [maxDps, setMaxDps] = useState(0)
@@ -80,6 +80,13 @@ function DpsChart({ weaponNames, weaponStats, options }) {
 		}
 		for (let index = 0; index < options.WpnLevel; index++) {
 			damage += (0.15 * baseDamage)
+		}
+		if (options.AOE > 1) {
+			if (weaponStats[i].AOE >= options.AOE) {
+				damage *= options.AOE
+			} else {
+				damage = weaponStats[i].AOE > 0 ? damage * weaponStats[i].AOE : damage
+			}
 		}
 		damage = healthCheck(damage, weaponStats[i].DmgType)
 		const dps = (damage) / ((1 / rof) + (reload / magazine))

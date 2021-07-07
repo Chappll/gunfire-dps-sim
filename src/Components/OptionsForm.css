@@ -43,3 +43,10 @@
 	margin-top: 5px;
 	margin-bottom: 1%;
 }
+
+@media (max-width:1000px){
+	.filter
+	{
+		margin-left: 0%
+	}
+}
