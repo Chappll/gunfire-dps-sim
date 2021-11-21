@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ProgressBarLine } from 'react-progressbar-line'
 import PropTypes from 'prop-types'
+import WeaponModal from './WeaponModal'
 import './WeaponDps.css'
 
 function WeaponDps({ weaponID, weapon, dps, maxDps }) {
 	// Weapon fields are: Name, Category, CritX, Damage, DmgType, EChance, Magazine, PicLink, Reload, Rof
 	// (weapon.Damage/maxDps)*100
 	const barValue = (dps / maxDps) * 100
-	const img = new URL(weapon.PicLink)
+	const [hovered, setHovered] = useState(false)
+	const [openModal, setOpenModal] = useState(false)
 
 	const colorSelect = () => {
 		switch (weapon.DmgType) {
@@ -23,9 +25,11 @@ function WeaponDps({ weaponID, weapon, dps, maxDps }) {
 	}
 
 	return (
-		<div className="WeaponDpsOuter">
+
+		// eslint-disable-next-line jsx-a11y/click-events-have-key-events
+		<div className="WeaponDpsOuter" style={hovered ? { borderColor: 'yellow' } : { borderColor: 'white' }} onMouseOver={() => setHovered(true)} onFocus={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
 			<img src={weapon.PicLink} alt="logo" height={100} width={100} />
-			<div className="WeaponDpsInner">
+			<div className="WeaponDpsInner" onKeyPress={() => hovered ? setOpenModal(true) : null} onClick={() => setOpenModal(true)} role="button" tabIndex="0">
 				<h1 className="Name">{weaponID}</h1>
 				<ProgressBarLine
 					value={barValue}
@@ -53,6 +57,9 @@ function WeaponDps({ weaponID, weapon, dps, maxDps }) {
 				{' '}
 dps
 			</h2>
+			<WeaponModal open={openModal} onClose={() => setOpenModal(false)} weapon={weapon}>
+				{weaponID}
+			</WeaponModal>
 		</div>
 	)
 }
